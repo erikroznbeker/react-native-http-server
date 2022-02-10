@@ -29,7 +29,12 @@ public class Server extends NanoHTTPD {
     private int _timeout;
 
     public Server(ReactContext context, int port, int timeout) {
-        super("127.0.0.1", port);
+        //only local access
+        //super("127.0.0.1", port);
+
+        //everybody can access
+        super("0.0.0.0", port);
+        
         reactContext = context;
         _timeout = timeout;
         _response = new HashMap<>();
